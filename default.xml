@@ -710,4 +710,9 @@
 
   <repo-hooks in-project="platform/tools/repohooks" enabled-list="pre-upload" />
 
+  <include name="snippets/remove.xml" />
+  <include name="snippets/p3r-oss.xml" />
+  <!--include name="snippets/p3r-css.xml" /-->
+  <include name="snippets/lineage.xml" />
+
 </manifest>

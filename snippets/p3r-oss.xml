@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="oss"
+           fetch="https://github.com/pixel3rom-oss"
+           revision="refs/heads/android-9.0.0_r31" />
+
+  <!-- Pixel3ROM OSS -->
+  <project path="manifest" name="platform_manifest" remote="oss" />
+
+  <!-- build/make -->
+  <project path="build/make" name="platform_build" remote="oss" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <!-- frameworks/{av,base} -->
+  <project path="frameworks/av" name="platform_frameworks_av" remote="oss" />
+  <project path="frameworks/base" name="platform_frameworks_base" remote="oss" />
+
+  <!-- packages/apps/Nfc -->
+  <project path="packages/apps/Nfc" name="platform_packages_apps_Nfc" remote="oss" />
+
+  <!-- system/{core,sepolicy} -->
+  <project path="system/core" name="platform_system_core" remote="oss" />
+  <project path="system/sepolicy" name="platform_system_sepolicy" remote="oss" />
+</manifest>
