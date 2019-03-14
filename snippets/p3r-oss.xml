@@ -2,12 +2,18 @@
 <manifest>
   <remote  name="oss"
            fetch="https://github.com/pixel3rom-oss"
-           revision="refs/heads/android-9.0.0_r31" />
+           revision="refs/heads/pie" />
 
   <!-- Pixel3ROM OSS -->
-  <project path="manifest" name="platform_manifest" remote="oss" />
+  <project path="manifest" name="platform_manifest" remote="oss" revision="refs/heads/pie"/>
 
-  <!-- build/make -->
+  <!-- art -->
+  <project path="art" name="platform_art" remote="oss" />
+
+  <!-- bionic -->
+  <project path="bionic" name="platform_bionic" remote="oss" />
+
+  <!-- build/{make,soong} -->
   <project path="build/make" name="platform_build" remote="oss" >
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
@@ -17,13 +23,14 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
-
-  <!-- frameworks/{av,base} -->
+  <project path="build/soong" name="platform_build_soong" remote="oss" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <!-- frameworks/{av,base,native} -->
   <project path="frameworks/av" name="platform_frameworks_av" remote="oss" />
   <project path="frameworks/base" name="platform_frameworks_base" remote="oss" />
-
-  <!-- packages/apps/Nfc -->
-  <project path="packages/apps/Nfc" name="platform_packages_apps_Nfc" remote="oss" />
+  <project path="frameworks/native" name="platform_frameworks_native" remote="oss" />
 
   <!-- system/{core,sepolicy} -->
   <project path="system/core" name="platform_system_core" remote="oss" />

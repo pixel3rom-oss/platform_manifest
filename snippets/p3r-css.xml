@@ -3,12 +3,12 @@
   <!-- This is an SSH repositories -->
   <!-- Special authorization required -->
   <remote  name="css"
-           fetch="git@gitlab.com:Pixel3ROM"
+           fetch="ssh://git@gitlab.com/Pixel3ROM/"
            revision="refs/heads/pie" />
 
   <!-- vendor/google -->
-  <project path="vendor/google" name="platform/vendor/google" remote="css" />
+  <project path="vendor/google" name="platform/vendor/google" remote="css" revision="pie1" />
 
   <!-- vendor/google_apps -->
-  <project path="vendor/google_apps" name="platform/vendor/google_apps" remote="css" />
+  <project path="vendor/google_apps" name="platform/vendor/google_apps" remote="css" revision="pie" />
 </manifest>
